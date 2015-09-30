@@ -2,17 +2,30 @@
 
 #include "game.h"
 
-void solve(Game g) {
-    if (!g.is_valid()) return;
-    char *ch = g.free_cell();
+int solve(Game &g) {
+    if (!g.is_valid()) return 0;
+
+    int row = 0, col = 0;
+    char *ch = g.free_cell(col, row);
     if (!ch) {
-        std::cout << g << "\n";
-        return;
+        return 1;
     }
-    for (char i = '1'; i <= '9'; ++i) {
-        *ch = i;
-        solve(g);
+    int result = 0;
+    set orig_row = g.row(row);
+    set orig_col = g.col(col);
+    set valids = orig_row; valids &= orig_col;
+    while (valids) {
+        int i = valids.popDigit();
+        set d = set::forDigit(i);
+        g.row(row) -= d;
+        g.col(col) -= d;
+        *ch = to_char(i);
+        result += solve(g);
+        g.row(row) = orig_row;
+        g.col(col) = orig_col;
     }
+    *ch = ' ';
+    return result;
 }
 
 int main(int argc, const char * argv[]) {
@@ -38,7 +51,10 @@ int main(int argc, const char * argv[]) {
         "B  #9  ##"
     );
     
-    solve(g);
+//    std::cout << "start\n";
+//    for (int i = 0; i < 1000; ++i) solve(g);
+//    std::cout << "end\n";
+    std::cout << solve(g) << " solutions\n";
     
     return 0;
 }

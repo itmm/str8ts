@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		245271591BBB075700AAB8E7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 245271581BBB075700AAB8E7 /* main.cpp */; };
 		245271611BBB078400AAB8E7 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2452715F1BBB078400AAB8E7 /* game.cpp */; settings = {ASSET_TAGS = (); }; };
+		245271641BBC6C3000AAB8E7 /* set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 245271621BBC6C3000AAB8E7 /* set.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		245271581BBB075700AAB8E7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2452715F1BBB078400AAB8E7 /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 		245271601BBB078400AAB8E7 /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		245271621BBC6C3000AAB8E7 /* set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = set.cpp; sourceTree = "<group>"; };
+		245271631BBC6C3000AAB8E7 /* set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = set.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				245271581BBB075700AAB8E7 /* main.cpp */,
 				2452715F1BBB078400AAB8E7 /* game.cpp */,
 				245271601BBB078400AAB8E7 /* game.h */,
+				245271621BBC6C3000AAB8E7 /* set.cpp */,
+				245271631BBC6C3000AAB8E7 /* set.h */,
 			);
 			path = str8ts;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				245271641BBC6C3000AAB8E7 /* set.cpp in Sources */,
 				245271591BBB075700AAB8E7 /* main.cpp in Sources */,
 				245271611BBB078400AAB8E7 /* game.cpp in Sources */,
 			);
@@ -155,7 +161,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",

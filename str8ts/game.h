@@ -1,23 +1,26 @@
 #if ! defined(game_h)
 #define game_h
 
-    #include <cstring>
     #include <iostream>
+
+    #include "set.h"
 
     class Game {
         private:
             char _data[9 * 9];
+            set _rows[9];
+            set _cols[9];
         
         public:
-            Game(const char *data) { memcpy(_data, data, 9 * 9); }
+            Game(const char *data);
             char operator()(int x, int y) const { return _data[y * 9 + x]; }
         
-            char *free_cell();
+            char *free_cell(int &col, int &row);
+            set &row(int r) { return _rows[r]; }
+            set &col(int c) { return _cols[c]; }
+            
             bool is_valid();
             bool is_complete();
-        
-        private:
-            bool is_valid_row(const char *row, int offset);
     };
 
     inline bool is_free(char ch) { return ch == ' '; }
